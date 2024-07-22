@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - Event handling</title>
+    <style>
+        #bg, #bg2 {
+            width: 250px;
+            height: 250px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #efefef;
+            font-size: 25px;
+        }
+
+        #bg2 {
+            background-color: orange;
+        }
+        ul li {
+            cursor: pointer;
+        }
+
+        #buttons {
+            margin: 25px 0;
+            padding: 20px 30px;
+            width: 560px;
+            background-color: blue;
+            display: flex;
+            justify-content: space-around;
+        }
+        #buttons button {
+            background-color: white;
+            color: #000;
+            border: none;
+            margin: 0 6px;
+            padding: 7px;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus reprehenderit fugiat molestiae!</p>
+    <button id="btn1">Click to Change the text</button> <br>
+
+    <img id="img" src="./img.jpg" width="150" alt="">
+    <button id="toggle">Toggle</button>
+
+    
+    <div id="bg"></div>
+    <div id="bg2"></div>
+
+    <!-- Activity 3: Keyboard Events -->
+     <p>Enter some text: Task 5</p>
+    <input type="text" name="text" id="keydown">
+
+     <p>Enter some text: Task 6</p>
+     <input type="text" name="text" id="keyup">
+     <p id="content"></p>
+
+     <!-- Activity 4: Form Events -->
+     <form action="" id="form">
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" id="fullname">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <button type="submit">Submit</button>
+     </form>
+
+     <p>What is your favourite programming language</p>
+     <select name="language" class="language">
+        <option value="" default>Choose</option>
+        <option value="C++">C++</option>
+        <option value="JAVA">JAVA</option>
+        <option value="Python">Python</option>
+        <option value="Javascript">Javascript</option>
+     </select>
+
+     <!-- Activity 5: Event Delegation -->
+      <p>My Favourite Fruits - </p>
+      <ul id="lists">
+        <li>Mango</li>
+        <li>Apple</li>
+        <li>banana</li>
+        <li>Orange</li>
+      </ul>
+
+      <!-- Task 10 -->
+       <p>You Can add as many child elements you want.</p>
+      <div id="buttons">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+     </div>
+
+</body>
+<script>
+    // Task 1
+    document.getElementById('btn1').addEventListener('click', function() {
+        document.getElementById('para').innerHTML = "Hello everyone, How are you all";
+    }, false);
+
+    // Task 2
+    const img = document.querySelector('#img');
+    const toogleBtn = document.querySelector('#toggle');
+
+    toogleBtn.addEventListener('dblclick', function() {
+        if(img.style.display === 'none') {
+            img.style.display = 'block';
+        } else {
+            img.style.display = 'none';
+        }
+    }, false);
+
+    // Activity 2: Mouse Events
+    // Task 3
+    const changeBgEl = document.querySelector('#bg');
+
+    changeBgEl.addEventListener('mouseover', function(e){
+        changeBgEl.style.backgroundColor = 'Orange';
+    }, false);
+
+    // Task 4
+    const bg2 = document.querySelector('#bg2');
+
+    bg2.addEventListener('mouseout', function() {
+        bg2.style.backgroundColor = 'transparent';
+    }, false);
+
+    // Activity 3: Keyboard events 
+    // Task 5
+    const keydownEl = document.querySelector('#keydown');
+
+    keydownEl.addEventListener('keydown', function(e) {
+        console.log(e.key);
+    }, false);
+
+    // Task 6
+    const keyupEl = document.querySelector('#keyup');
+
+    keyupEl.addEventListener('keyup', function(e){
+        document.querySelector('#content').innerHTML = keyupEl.value;
+    }, false);
+
+    // Activity 4: Form Events
+    // Task 7
+    const form = document.querySelector('#form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fullname = document.querySelector('#fullname');
+        const email = document.querySelector('#email');
+
+        if(fullname.value == '' && email.value == '') {
+            console.log('Please enter fullname or email');
+        } else {
+            console.log(fullname.value);
+            console.log(email.value);
+        }
+    });
+
+    // Task 8
+    const select = document.querySelector('.language');
+
+    select.addEventListener('change', function(e){
+        if(e.target.value === '') {
+            console.log('Please select your favourite programming language');
+        } else {
+            console.log(`${e.target.value} is your favourite programming language`);
+        }
+    }, false);
+
+    // Activity 5: 
+    // Task 9
+    const lists = document.querySelector('#lists');
+
+    lists.addEventListener('click', function(e){
+        const target = e.target;
+
+        if(target.tagName == 'LI') {
+            console.log(target.innerHTML);
+        }
+    });
+
+    // Task 10: 
+    const buttons = document.querySelector('#buttons');
+
+    buttons.addEventListener('click', function(e) {
+        const target = e.target;
+
+        if(target.tagName = 'BUTTON') {
+            console.log(target.innerText);
+        }
+    })
+    
+
+</script>
+</html>
