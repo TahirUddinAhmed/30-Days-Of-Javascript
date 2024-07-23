@@ -1,0 +1,20 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ outline: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2e2e2e33;
+}
+
+table, tr, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+}
