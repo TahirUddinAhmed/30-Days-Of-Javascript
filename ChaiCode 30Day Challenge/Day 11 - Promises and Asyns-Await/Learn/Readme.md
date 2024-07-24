@@ -96,3 +96,26 @@ fetch() is a built-in javascript function used to make network requests to retri
   3. Handling the response: 
    - reponse.json(): if the response contains JSON data you can use `response.json()` to parse it. 
    - response.text(): if the response is plain text, you can use `response.text()`.
+
+
+## Promise.all() 
+The `Promise.all()` static method takes an iterable of promises an input and returns a signle `promise`. This returned promise fulfulls when all of the input's promises fulfill (including when an empty iterable is passed), with an array of the fulfillment values. it reject when any of the input's promises rejects, with the first rejection reason. 
+
+### Syntax 
+```js 
+Promise.all([promise1 promise2, promise3, ....])
+  .then(result => {
+    // handle the array of results
+  })
+  .catch(err => {
+    // handle the first error encountered
+  });
+```
+
+## Promise.race()
+`Promise.race()` is a method in javascript that returns a promise which resolves or rejects as soon as one of the promises in the iterable resolves or rejects. It essentially races multiple promises against each other and settles with the result of the first one to complete. 
+
+### How it works 
+ - Input: It takes an iterable (like an array) of promises as an argument.
+ - Output: It returns a single promise that settles as soon as the first promise in the iterable settles (either resolved or rejected). 
+
