@@ -77,3 +77,22 @@ Async/Await is Javascript is a modern way to hanndle asynchronous operations, ma
   - when the `await` keyword is used, the function pauses execution until the Promise is resolved. 
   - The resolved value of the Promise is then assigned to the variable. 
   - You can handle errors in an `async` function using `try...catch` blocks. 
+
+
+## Fetch()
+fetch() is a built-in javascript function used to make network requests to retrieve resources from a server. It's commonly used for making HTTP requests to APIs. 
+ 1. Making a request: `fetch()` is used to send a request to specified URL. It returns a promise that resolves to the response object representing the response to the request. 
+
+ 2. Syntax: 
+  ```js
+     fetch(url)
+     .then(response => {
+      // handle the response
+     })
+     .catch(err => {
+      // handle errors
+     })
+  ```
+  3. Handling the response: 
+   - reponse.json(): if the response contains JSON data you can use `response.json()` to parse it. 
+   - response.text(): if the response is plain text, you can use `response.text()`.
