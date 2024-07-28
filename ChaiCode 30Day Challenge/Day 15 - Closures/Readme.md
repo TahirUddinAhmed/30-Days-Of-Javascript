@@ -10,13 +10,13 @@ Tasks/Activities:
  - Task 4: Create a closure that captures a user's name and return's a function that greets the user by name. 
 
 ## Activity 3: Closures in Loops 
- - Task 5: Write a loop that creates an array of functions. Each function shoold log its index when called. Use a closure to ensure each function log the corrent index. 
+ - Task 5: Write a loop that creates an array of functions. Each function should log its index when called. Use a closure to ensure each function log the corrent index. 
 
 ## Activity 4: Module Pattern 
- - Task 6: Use closures to create a simple module for managing a collection of items. Implements methodds to add, remove, and list items. 
+ - Task 6: Use closures to create a simple module for managing a collection of items. Implements methods to add, remove, and list items. 
 
 ## Activity 5: Memorization
- - Task 7: Write a function that memorizes the results of another function. Usse a closure to store the results of previous computations. 
+ - Task 7: Write a function that memorizes the results of another function. Use a closure to store the results of previous computations. 
  - Task 8: Create a memoize version of a function that calculates the factorial of a number. 
 
 ## Feature Request: 
