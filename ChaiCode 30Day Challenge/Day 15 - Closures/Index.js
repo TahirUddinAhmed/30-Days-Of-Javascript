@@ -95,8 +95,64 @@ item.addItem('Banana');
 item.removeItem();
 item.listItems();
 
-// Task 5
-function memorization() {
-    
+// Task 7
+const add = (n) => {
+    return n + 5;
 }
+
+const memoizeAdd = (fn) => {
+    let cache = {};
+
+    return function(n) {
+        if(n in cache) {
+            console.log('From Cache -');
+            return cache[n];
+        } else {
+            console.log('Calculating');
+            let result = fn(n);
+            cache[n] = result;
+
+            return result;
+        }
+    }
+}
+
+const add1 = memoizeAdd(add);
+
+console.log(add1(3));
+console.log(add1(3));
+
+
+// Task 8
+const fact = (n) => {
+    let result = 1;
+    for(let i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+}
+
+const memoizeFact = (fn) => {
+    let cache = {};
+
+    return function(number) {
+        if(number in cache) {
+            console.log('Returning result from cache');
+            return cache[number];
+        } else {
+            console.log('Calculating- ');
+            let result = fn(number);
+            cache[number] = result;
+
+            return result;
+        }
+    }
+}
+
+const fact1 = memoizeFact(fact);
+
+console.log(fact1(4));
+console.log(fact1(5));
+console.log(fact1(5));
 
