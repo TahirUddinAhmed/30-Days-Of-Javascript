@@ -7,7 +7,7 @@ Tasks/Activities:
 
 ## Activity 2: Using LocalStorage
  - Task 3: Create a simple form that saves user input(e.g., name, and email) to `localStorage` when submitted. Retrieve and display the saved data on page load. 
- - Task 4: Write a script to remove and item from `localStorage` Log the `localStorage` content before and after removal. 
+ - Task 4: Write a script to remove an item from `localStorage` Log the `localStorage` content before and after removal. 
 
 ## Activity 3: Understanding SessionStorage
  - Task 5: Write a script to save a string value to `sessionStorage` and retrieve it. Log the retrieved value. 
