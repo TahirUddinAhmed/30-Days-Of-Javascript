@@ -106,3 +106,12 @@ body {
     padding: 0.7rem 0.7rem;
     margin: 7px 1px;
 }
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+    .main {
+     grid-template-columns: 1fr;
+   }
+}
