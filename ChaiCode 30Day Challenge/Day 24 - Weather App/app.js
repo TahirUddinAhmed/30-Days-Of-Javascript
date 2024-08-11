@@ -54,7 +54,7 @@ function updateCityTime(timezoneOffset) {
     ];
     const monthName = monthNames[Math.floor(month)];
 
-    const formattedDate = `${day - 1} ${monthName} ${year}`;
+    const formattedDate = `${day} ${monthName} ${year}`;
 
     document.querySelector('.date').innerHTML = `Date: ${formattedDate}`;
 
