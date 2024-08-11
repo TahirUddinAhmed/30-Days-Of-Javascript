@@ -99,7 +99,6 @@ body {
     flex-wrap: wrap;
 }
 .right-container .cards .card {
-    min-width: 210px;
     background-color: rgba(69, 117, 238, 0.667);
     color: #fff;
     border-radius: 10px;
@@ -114,4 +113,10 @@ body {
     .main {
      grid-template-columns: 1fr;
    }
+
+   .right-container .cards {
+    flex-direction: column;
+   }
+
+   
 }
