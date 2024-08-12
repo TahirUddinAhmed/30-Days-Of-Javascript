@@ -13,6 +13,10 @@ body {
     background-color: #e8e8e8;
     font-family: "Poppins", sans-serif;
 }
+h4 {
+    font-weight: 600;
+    color: #3b3b3b;
+}
 
 .main {
     display: grid;
@@ -26,7 +30,6 @@ body {
     
     /* border: 1px solid; */
     /* padding: 7px; */
-    
 }
 .left-container-body {
     display: flex;
@@ -66,8 +69,6 @@ body {
 .left-container-body .temp-icon img{ 
     width: 110px;
     height: 110px;
-
-
 }
 .left-body-center {
  text-align: center;
@@ -80,16 +81,18 @@ body {
 }
 
 .left-body-bottom {
+ font-size: 14px;
  text-align: center;
 }
 .left-body-bottom .CityName {
     margin-top: 10px;
+    color: #3b3b3b;
 }
 /* right side */
 .right-container {
     background-color: #efefef;
     min-height: 100vh;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
 .right-container .cards {
@@ -106,7 +109,85 @@ body {
     margin: 7px 1px;
 }
 
+/* Hourly Card Design */
+.time-cards {
+    margin-top: 0.8rem;
+}
+.hourly-card {
+    margin-top: 0.6rem;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.time-card {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.time-card .logo img {
+    
+    width: 40px;
+    height: 40px;
+}
+.time-card .hourly-temp {
+    font-weight: 600;
+    font-size: 12px;
+    margin: 14px 0 5px 0;
+}
+.time-card .time {
+    font-weight: 400;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
 
+/* 5 Days Forecast design */
+.weekly-card {
+    margin-top: 7px;
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.day-card .logo img {
+    width: 70px;
+    height: 70px;
+}
+.day-card {
+    padding: 1rem 0.2rem;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.day-card .day {
+    font-weight: 600;
+    color: #5b5b5b;
+}
+.day-card .date {
+    font-weight: 200;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.footer {
+    margin-top: 2rem;
+    text-align: center;
+
+}
+.footer p {
+    font-size: 14px;
+    color: #3b3b3b;
+}
+.footer .developer {
+    font-weight: 600;
+}
 /* Responsive */
 
 @media (max-width: 800px) {
@@ -172,6 +253,14 @@ body {
     }
     .left-body-bottom .CityName {
         font-size: 30px;
+    }
+
+    .weekly-card {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        flex-direction: row-reverse;
     }
 
 
