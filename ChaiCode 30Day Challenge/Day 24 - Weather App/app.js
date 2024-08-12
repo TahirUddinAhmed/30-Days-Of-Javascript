@@ -21,6 +21,11 @@ searchForm.addEventListener('submit', function(e) {
     }
 });
 
+/**
+ * Check Weather Function
+ * @param {api_key} url 
+ * @param {string} location 
+ */
 async function checkWeather(url, location = 'Guwahati') {
     try {
         const response = await fetch(url + `&appid=${api_key}&q=${location}`);
@@ -36,15 +41,18 @@ async function checkWeather(url, location = 'Guwahati') {
         document.querySelector('.humidity').innerHTML = `${data.main.humidity} %`;
         document.querySelector('.real-feel').innerHTML = `${data.main.feels_like} &deg; C`;
         
-        console.log(data);
-        // time and date 
+
         updateCityTime(data.timezone);
     } catch(e) {
         console.error('Error: ', e);
     }
 }
 
-// get the Lettitude and langtitude 
+/**
+ * Get Geo Location 
+ * @param {api_key} url 
+ * @param {string} city cityName
+ */
 async function getGeoLocation(url, city = 'Guwahati') {
     const response = await fetch(url + `&appid=${api_key}&q=${city}`);
     const data = await response.json();
@@ -52,18 +60,19 @@ async function getGeoLocation(url, city = 'Guwahati') {
     const lon = data[0].lon;
 
     getFiveDaysWeather(fiveDaysUrl, lat, lon);
-    // getFiveDaysWeather;
     todayWeather(fiveDaysUrl, lat, lon);
 
 }
 
-console.log('geo location');
-// console.log(getGeoLocation(geoApi));
 getGeoLocation(geoApi);
 
+/**
+ * Update Date according to city name
+ * @param {*} timezoneOffset 
+ */
 function updateCityTime(timezoneOffset) {
     const now = new Date();
-    const localTime = new Date(now.getTime() + timezoneOffset * 1000);
+    const localTime = new Date(now + timezoneOffset * 1000);
     
     const year = localTime.getFullYear();
     const month = String(localTime.getMonth()).padStart(2, '0'); // Months are 0-based
@@ -85,7 +94,12 @@ function updateCityTime(timezoneOffset) {
 
 checkWeather(url);
 
-// Today weather forecast 
+/**
+ * Hourly Weather 
+ * @param {api_key} url 
+ * @param {number} lat lattitude
+ * @param {number} lon longtitude
+ */
 async function todayWeather(url, lat = 26.2491, lon = 92.3476) {
     const response = await fetch(url + `&appid=${api_key}&lat=${lat}&lon=${lon}`);
     const data = await response.json();
@@ -134,7 +148,12 @@ async function todayWeather(url, lat = 26.2491, lon = 92.3476) {
     
 }
 
-// 5 Days weather forecast 
+/**
+ * Five Days Weather Forecasting
+ * @param {api_key} url 
+ * @param {number} lat 
+ * @param {number} lon 
+ */
 async function getFiveDaysWeather(url, lat = 26.2491, lon = 92.3476) {
     const response = await fetch(url + `&appid=${api_key}&lat=${lat}&lon=${lon}`);
     const data = await response.json();
@@ -143,8 +162,12 @@ async function getFiveDaysWeather(url, lat = 26.2491, lon = 92.3476) {
     FiveDayWeatherData(data);
 }
 
+
+/**
+ * Five Days of weather Display
+ * @param {JSON} data 
+ */
 function FiveDayWeatherData(data) {
-    // document.querySelector('.population').innerHTML = `Populuation: ${data.city.population}`;
     const forecast = data.list.filter(item => item.dt_txt.includes("12:00:00"));
     // console.log(data); 
     const currentTime = data.list[0].dt_txt; 
@@ -197,15 +220,7 @@ function FiveDayWeatherData(data) {
         `;
         card.innerHTML = content;
         weeklyCard.appendChild(card);
-        // console.log(item);
-        // Print the time and weather condition
-        // console.log(`  ${hour} ${ampm}: ${temp}°C, ${description}`);
 
     });
-
-    
-
-    
-  
 }
 
