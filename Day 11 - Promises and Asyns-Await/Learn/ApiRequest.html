@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .githubCard {
+            width: 250px;
+            border: 1px solid #e3e4e6;
+            background-color: aliceblue;
+            margin: 0 auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .githubCard img {
+            width: 100%;
+            
+            
+        }
+
+        .githubCard .user-info {
+            color: #212121;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body style="background-color: #212121; color: #e3e4e6;">
+<!-- Doc -->
+ <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState">Doc</a>
+ <div class="githubCard">
+    <div>
+        <img src="" id="user-img" alt="">
+    </div>
+    <div class="user-info">
+        <h3 id="fullname"></h3>
+        <p id="followers"></p>
+    </div>
+ </div>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/TahirUddinAhmed';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4) {
+            // console.log(this.responseText);
+            // convert string to object 
+            const data = JSON.parse(this.responseText);
+            
+            const heading = document.createElement('h2');
+
+            const userImg = document.getElementById('user-img');
+            userImg.setAttribute('src', data.avatar_url);
+            document.querySelector('#fullname').innerHTML = data.name;
+            document.querySelector('#followers').innerHTML = 'Followers ' + data.followers;
+
+            // console.log(typeof data);
+            console.log(data);
+        }
+    }
+    xhr.send();
+
+</script>
+</html>
