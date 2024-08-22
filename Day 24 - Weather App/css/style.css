@@ -1,0 +1,267 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #e8e8e8;
+    font-family: "Poppins", sans-serif;
+}
+h4 {
+    font-weight: 600;
+    color: #3b3b3b;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    /* margin: 5rem; */
+    border: 1px solid #eeeded;
+}
+
+.left-container {
+    background-color: #fff;
+    
+    /* border: 1px solid; */
+    /* padding: 7px; */
+}
+.left-container-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 90vh;
+}
+.left-container .top-search {
+    /* border: 1px solid; */
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+#search {
+    width: 75%;
+    padding: 8px 17px;
+    border: none;
+    background-color: #efefef;
+    border-radius: 20px;
+}
+.search-btn {
+    padding: 9px 14px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(69, 117, 238, 0.667);
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+
+}
+.search-btn:hover {
+    background-color: rgba(59, 104, 218, 0.667);
+}
+
+.left-container-body .temp-icon img{ 
+    width: 110px;
+    height: 110px;
+}
+.left-body-center {
+ text-align: center;
+}
+.left-body-center h2 {
+    font-size: 36px;
+}
+.left-body-center .temp-name {
+    color: #5b5b5b;
+}
+
+.left-body-bottom {
+ font-size: 14px;
+ text-align: center;
+}
+.left-body-bottom .CityName {
+    margin-top: 10px;
+    color: #3b3b3b;
+}
+/* right side */
+.right-container {
+    background-color: #efefef;
+    min-height: 100vh;
+    padding: 1rem 1.5rem;
+}
+
+.right-container .cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.right-container .cards .card {
+    width: 200px;
+    background-color: rgba(69, 117, 238, 0.667);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.7rem 0.7rem;
+    margin: 7px 1px;
+}
+
+/* Hourly Card Design */
+.time-cards {
+    margin-top: 0.8rem;
+}
+.hourly-card {
+    margin-top: 0.6rem;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.time-card {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.time-card .logo img {
+    
+    width: 40px;
+    height: 40px;
+}
+.time-card .hourly-temp {
+    font-weight: 600;
+    font-size: 12px;
+    margin: 14px 0 5px 0;
+}
+.time-card .time {
+    font-weight: 400;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+/* 5 Days Forecast design */
+.weekly-card {
+    margin-top: 7px;
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.day-card .logo img {
+    width: 70px;
+    height: 70px;
+}
+.day-card {
+    padding: 1rem 0.2rem;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.day-card .day {
+    font-weight: 600;
+    color: #5b5b5b;
+}
+.day-card .date {
+    font-weight: 200;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.footer {
+    margin-top: 2rem;
+    text-align: center;
+
+}
+.footer p {
+    font-size: 14px;
+    color: #3b3b3b;
+}
+.footer .developer {
+    font-weight: 600;
+}
+/* Responsive */
+
+@media (max-width: 800px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+   .left-container .top-search {
+        /* border: 1px solid; */
+        width: 100%;
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+
+   #search {
+        min-width: 60%;
+        max-width: 70%;
+        padding: 14px 17px;
+        font-size: 17px;
+        border-radius: 5px 0px 0px 5px;
+        margin: 0;
+    }
+    .search-btn {
+        padding: 14px 14px;
+        border-radius: 0 5px 5px 0;
+        font-size: 16px;
+    }
+
+   .right-container .cards {
+     flex-direction: column;
+   }
+   .right-container .cards .card {
+        padding: 1.2rem 2rem;
+        font-size: 21px;
+        width: 100%;
+    }
+    .right-container .cards .card p {
+        font-weight: 200;
+    }
+    .right-container .cards .card h3 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+   .left-container-body {
+        margin-top: 2rem;
+        min-height: 67vh;
+    }
+
+   .left-container-body .temp-icon img{ 
+        width: 150px;
+        height: 150px;
+    }
+    .left-body-center h2 {
+        font-size: 47px;
+    }
+    .left-body-center .temp-name {
+        font-size: 24px;
+    }
+
+    .left-body-bottom {
+        font-size: 21px;
+    }
+    .left-body-bottom .CityName {
+        font-size: 30px;
+    }
+
+    .weekly-card {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        flex-direction: row-reverse;
+    }
+
+
+}
